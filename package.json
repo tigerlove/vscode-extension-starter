@@ -1,0 +1,103 @@
+{
+  "name": "cursor-rules-directory",
+  "displayName": "Cursor Rules Directory",
+  "description": "A VS Code extension to view and manage Cursor rules with a modern UI",
+  "version": "1.0.0",
+  "publisher": "luunderstars",
+  "author": {
+    "name": "Lu Jianfu",
+    "mail": "corleonelou@qq.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tigerlove/vscode-extension-cursordir"
+  },
+  "icon": "assets/icon.png",
+  "galleryBanner": {
+    "color": "#1e1e1e",
+    "theme": "dark"
+  },
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Other",
+    "Programming Languages",
+    "Snippets"
+  ],
+  "keywords": [
+    "cursor",
+    "ai",
+    "rules",
+    "snippets",
+    "productivity"
+  ],
+  "activationEvents": [
+    "onCommand:cursor-rules.openViewer"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "cursor-rules.openViewer",
+        "title": "Open Cursor Rules Viewer",
+        "category": "Cursor Rules"
+      }
+    ],
+    "configuration": {
+      "title": "Cursor Rules",
+      "properties": {
+        "cursorRules.cachedRules": {
+          "type": "string",
+          "default": "",
+          "description": "Cached rules data"
+        },
+        "cursorRules.lastSync": {
+          "type": "number",
+          "default": null,
+          "description": "Timestamp of last rules sync"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "install:all": "yarn install && cd webview-ui && yarn install",
+    "start:webview": "cd webview-ui && yarn run start",
+    "build:webview": "cd webview-ui && yarn run build",
+    "vscode:prepublish": "yarn run build:webview && yarn run compile",
+    "compile": "npm run check-types && npm run lint && node esbuild.js",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "check-types": "tsc --noEmit",
+    "format": "prettier . --check",
+    "format:fix": "prettier . --write",
+    "pretest": "yarn run compile && yarn run lint",
+    "lint": "eslint src --ext ts",
+    "package": "npm run build:webview && npm run check-types && npm run lint && node esbuild.js --production",
+    "vsce:package": "vsce package",
+    "publish:marketplace": "vsce publish && ovsx publish",
+    "sync-rules": "node scripts/sync-rules.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.2.0",
+    "@types/node": "^20.11.5",
+    "@types/vscode": "^1.75.0",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "@vscode/vsce": "^2.22.0",
+    "esbuild": "^0.24.2",
+    "eslint": "^8.56.0",
+    "glob": "^7.2.0",
+    "minimatch": "^3.1.2",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.2.4",
+    "typescript": "^5.3.3",
+    "vscode-test": "^1.6.1"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@types/node-fetch": "^2.6.12",
+    "node-fetch": "2"
+  }
+}

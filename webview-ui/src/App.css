@@ -1,0 +1,230 @@
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.app-container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 200px;
+  min-width: 200px;
+  border-right: 1px solid var(--vscode-panel-border);
+  overflow-y: auto;
+  background: var(--vscode-sideBar-background);
+}
+
+.sidebar nav {
+  padding: 8px;
+}
+
+.category-button {
+  width: 100%;
+  padding: 6px 8px;
+  margin: 2px 0;
+  text-align: left;
+  background: none;
+  border: none;
+  color: var(--vscode-foreground);
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+
+.category-button:hover {
+  background: var(--vscode-list-hoverBackground);
+}
+
+.category-button.active {
+  background: var(--vscode-list-activeSelectionBackground);
+  color: var(--vscode-list-activeSelectionForeground);
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background: var(--vscode-editor-background);
+}
+
+.rules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.rule-card {
+  padding: 16px;
+  height: 400px;
+  max-height: 400px;
+  background: var(--vscode-editor-background);
+  border: 1px solid var(--vscode-panel-border);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+}
+
+.rule-header {
+  margin-bottom: 12px;
+}
+
+.rule-header h3 {
+  margin: 0 0 8px 0;
+  color: var(--vscode-editor-foreground);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  padding: 2px 8px;
+  background: var(--vscode-badge-background);
+  color: var(--vscode-badge-foreground);
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.rule-preview {
+  margin-bottom: 12px;
+  max-height: 100%;
+  flex-grow: 1;
+  overflow-y: auto;
+  color: var(--vscode-editor-foreground);
+  opacity: 0.8;
+  position: relative;
+}
+.rule-preview li {
+  display: list-item;
+  margin-left: 20px;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+.rule-preview li:last-child {
+  margin-bottom: 0;
+}
+.rule-preview > * {
+  margin-bottom: 12px;
+}
+.rule-preview > *:last-child {
+  margin-bottom: 0;
+}
+.rule-preview ul {
+  list-style-type: disc;
+  padding-left: 0;
+  margin: 0;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  overflow: auto;
+}
+.rule-preview ol {
+  list-style-type: decimal;
+  padding-left: 0;
+  margin: 0;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  overflow: auto;
+}
+.rule-preview p {
+  margin: 0;
+  line-height: 1.5;
+  overflow: auto;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+.rule-preview::after {
+  content: '';
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(transparent, var(--vscode-editor-background));
+}
+
+.rule-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--vscode-descriptionForeground);
+}
+
+.avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.use-rule-button {
+  padding: 4px 12px;
+  background: var(--vscode-button-background);
+  color: var(--vscode-button-foreground);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.use-rule-button:hover {
+  background: var(--vscode-button-hoverBackground);
+}
+
+/* VS Code theme integration */
+:root {
+  --container-padding: 20px;
+  --input-padding-vertical: 6px;
+  --input-padding-horizontal: 4px;
+  --input-margin-vertical: 4px;
+  --input-margin-horizontal: 0;
+}
+
+.search-container {
+  padding: 8px;
+  border-bottom: 1px solid var(--vscode-sideBar-border);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.search-input {
+  width: 100%;
+  padding: 4px 8px;
+  border: 1px solid var(--vscode-input-border);
+  background: var(--vscode-input-background);
+  color: var(--vscode-input-foreground);
+  border-radius: 2px;
+  outline: none;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+.search-input:focus {
+  border-color: var(--vscode-focusBorder);
+}
+
+.category-count {
+  padding: 1px 6px;
+  background: var(--vscode-badge-background);
+  color: var(--vscode-badge-foreground);
+  border-radius: 10px;
+  font-size: 11px;
+  min-width: 14px;
+  text-align: center;
+}

@@ -1,0 +1,65 @@
+# Default
+.vscode/**
+.vscode-test/**
+out/**
+node_modules/**
+src/**
+.gitignore
+.yarnrc
+esbuild.js
+**/tsconfig.json
+**/.eslintrc.json
+**/*.map
+**/*.ts
+**/.vscode-test.*
+.git
+.vscode/**
+.idea/**
+**/.DS_Store
+**/tsconfig.tsbuildinfo
+docs/**
+
+# Source files
+src/**
+webview-ui/src/**
+webview-ui/public/**
+
+# Development files
+scripts/**
+docs/**
+.github/**
+.cursorrules
+pnpm-lock.yaml
+
+# Node modules
+**/node_modules/**
+
+# Test files
+.vscode-test/**
+dist/test/**
+
+# Include necessary build files
+!dist/**
+
+# Custom
+demo.gif
+.nvmrc
+.gitattributes
+.prettierignore
+
+# Webview files - keep build directory
+# Ignore all webview-ui files except the build directory (https://github.com/microsoft/vscode-webview-ui-toolkit-samples/blob/main/frameworks/hello-world-react-cra/.vscodeignore)
+
+webview-ui/src/**
+webview-ui/public/**
+webview-ui/node_modules/**
+webview-ui/*.json
+webview-ui/*.js
+webview-ui/*.ts
+webview-ui/*.lock
+!webview-ui/build/** 
+**/.vscode-test.*
+**/.gitignore
+
+# Include icons
+!assets/icon.png
